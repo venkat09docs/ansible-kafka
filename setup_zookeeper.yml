@@ -1,0 +1,26 @@
+---
+- name: Host Prerequisites
+  hosts: zookeeper:kafka_broker:schema_registry
+  gather_facts: false
+  environment: "{{ proxy_env }}"
+  tasks:
+    - import_role:
+        name: variables
+        #    name: ssl
+
+
+- import_playbook: playbooks/zookeeper.yml
+
+- import_playbook: playbooks/kafka_broker.yml
+
+- import_playbook: playbooks/schema_registry.yml
+
+  #- import_playbook: kafka_connect.yml
+
+  #- import_playbook: ksql.yml
+
+  #- import_playbook: kafka_rest.yml
+
+  #- import_playbook: control_center.yml
+
+  #- import_playbook: kafka_connect_replicator.yml

@@ -1,0 +1,18 @@
+- hosts: all
+  become: true
+  roles:
+    - role: geerlingguy.java
+      when: "ansible_os_family == 'RedHat'"
+      java_packages:
+        - java-1.8.0-openjdk
+          #    - role: variables
+    - role: sleighzy.zookeeper
+      zookeeper_servers:
+        - zookeeper1
+        - zookeeper2
+        - zookeeper3
+
+- hosts: kafka-nodes
+  become: true
+  roles:
+    - role: sleighzy.kafka

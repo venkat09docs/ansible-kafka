@@ -1,18 +1,16 @@
-zookeeper:
-  hosts:
-    172.20.10.97:
-    172.20.10.154:
-    172.20.10.135:
+[zookeeper-nodes]
+zookeeper1 zookeeper_id=1 ansible_host=172.20.10.97
+zookeeper2 zookeeper_id=2 ansible_host=172.20.10.154
+zookeeper3 zookeeper_id=3 ansible_host=172.20.10.135
 
-kafka_broker:
-  hosts:
-    172.20.10.97:
-      broker_id: 0
-    172.20.10.154:
-      broker_id: 1
-    172.20.10.135:
-      broker_id: 2
+[zookeeper-nodes:vars]
+zookeeper_servers=zookeeper-nodes
 
-schema_registry:
-  hosts:
-    172.20.10.97:
+[kafka-nodes]
+kafka1 broker_id=0 ansible_host=172.20.10.97
+kafka2 broker_id=1 ansible_host=172.20.10.154
+kafka3 broker_id=2 ansible_host=172.20.10.135
+
+[kafka-nodes:vars]
+kafka_version=3.2.3
+

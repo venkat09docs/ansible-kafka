@@ -1,0 +1,32 @@
+--- #
+- name: Host Prerequisites
+  hosts: all
+  gather_facts: false
+  #environment: "{{ proxy_env }}"
+  become: true
+  roles:
+    - role: geerlingguy.java
+      # - variables
+
+      #  tasks:
+      #    - import_role:
+      # name: geerlingguy.java
+      # name: variables
+        #    name: ssl
+
+
+        #- import_playbook: playbooks/zookeeper.yml
+
+        #- import_playbook: playbooks/kafka_broker.yml
+
+        #- import_playbook: playbooks/schema_registry.yml
+
+  #- import_playbook: kafka_connect.yml
+
+  #- import_playbook: ksql.yml
+
+  #- import_playbook: kafka_rest.yml
+
+  #- import_playbook: control_center.yml
+
+  #- import_playbook: kafka_connect_replicator.yml
