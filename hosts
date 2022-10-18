@@ -1,0 +1,18 @@
+zookeeper:
+  hosts:
+    172.20.10.97:
+    172.20.10.154:
+    172.20.10.135:
+
+kafka_broker:
+  hosts:
+    172.20.10.97:
+      broker_id: 0
+    172.20.10.154:
+      broker_id: 1
+    172.20.10.135:
+      broker_id: 2
+
+schema_registry:
+  hosts:
+    172.20.10.97:
